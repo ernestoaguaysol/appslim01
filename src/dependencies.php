@@ -30,3 +30,10 @@ $container['db'] = function($c){
 
     return $pdo;
 };
+
+// Models
+$container['model'] = function($c){
+    return (object)[
+        'test' => new App\Model\TestModel($c->db)
+    ];
+};
