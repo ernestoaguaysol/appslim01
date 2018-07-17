@@ -12,7 +12,7 @@ $folders = [
 
 foreach ($folders as $f) {
     # code...
-    foreach (glob($base,"$f/*.php") as $k => $filename) {
+    foreach (glob($base."$f/*.php") as $k => $filename) {
         # code...
         require $filename;
     }
