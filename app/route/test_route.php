@@ -23,13 +23,13 @@ $app->group('/api/clientes', function () {
                         ->write(json_encode($this->model->test->insertData($req->getParsedBody())));
     });
 
-    // $this->post('actualizar', function ($req, $res, $args) {
-    //     return $res->withHeader('Content-type', 'application/json')
-    //                     ->write(json_encode($this->model->test->updateData($req->getParsedBody())));
-    // });
+    $this->put('/{id}', function ($req, $res, $args) {
+        return $res->withHeader('Content-type', 'application/json')
+                        ->write(json_encode($this->model->test->updateData($args['id'], $req->getParsedBody())));
+    });
 
-    // $this->post('eliminar', function ($req, $res, $args) {
-    //     return $res->withHeader('Content-type', 'application/json')
-    //                     ->write(json_encode($this->model->test->deleteData($req->getParsedBody())));
-    // });
+    $this->delete('/{id}', function ($req, $res, $args) {
+        return $res->withHeader('Content-type', 'application/json')
+                        ->write(json_encode($this->model->test->deleteData($args['id'])));
+    });
 });
